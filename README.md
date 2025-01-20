@@ -1,6 +1,8 @@
 # Gestion-de-Recrutement 
  Une application Web JEE avec les technologies Servlet JSP MVC JSTL JDBC ORM ou Spring MVC
 
+ Oracle OpenJDK 22
+
 
 ```bash
 pull mysql
