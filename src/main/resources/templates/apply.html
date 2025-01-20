@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymleaf/layout"
+      layout:decorate="nav-apply.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Job</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/bootstrap-icons/1.3.0/font/bootstrap-icons.css">
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container mt-5">
+        <h2>Apply for <span th:text="${job.title}">Job Title</span> at <span th:text="${job.company.name}">Company Name</span></h2>
+
+
+        <form th:action="@{/apply/{id}(id=${job.id})}" method="post" enctype="multipart/form-data" class="mt-4">
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="tel" id="phone" name="phone" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="residence" class="form-label">Place of Residence</label>
+                <input type="text" id="residence" name="residence" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="skills" class="form-label">Skills / Competence</label>
+                <select id="skills" name="skills" class="form-select" multiple required>
+                    <!-- Dynamically display the required skills from the job object -->
+                    <th:block th:each="skill : ${requiredSkills}">
+                        <option th:value="${skill}" th:text="${skill}"></option>
+                    </th:block>
+                </select>
+                <small class="form-text text-muted">Hold down the Ctrl (Windows) / Command (Mac) button to select multiple skills.</small>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="resume" class="form-label">Resume</label>
+                <input type="file" id="resume" name="resume" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">Message to the Hiring Team</label>
+                <textarea id="message" name="message" class="form-control" rows="5" placeholder="Let the company know about your interest working there"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> Submit Application</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
