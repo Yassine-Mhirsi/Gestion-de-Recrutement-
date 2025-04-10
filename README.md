@@ -1,5 +1,4 @@
 # Gestion-de-Recrutement
-
 A Recruitment Management System built with Spring Boot that enables companies to post job listings and job seekers to browse and apply for positions.
 
 ## Features
