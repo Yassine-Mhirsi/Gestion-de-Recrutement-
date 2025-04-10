@@ -45,6 +45,9 @@ use RECRUTMENT;
 ## How to Run
 
 1. Clone the repository
+   ```bash
+   git clone https://github.com/Yassine-Mhirsi/Gestion-de-Recrutement-.git
+   ```
 2. Make sure you have Java 17 and Maven installed
 3. Set up the MySQL database using the instructions above
 4. Run the application using Maven:
